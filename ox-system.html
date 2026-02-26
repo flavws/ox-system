@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ox System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body class="font-[Poppins] overflow-x-hidden bg-gray-100">
+
+  <span class="absolute text-white text-4xl top-5 left-4 cursor-pointer lg:hidden z-30" onclick="Openbar()">
+    <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
+  </span>
+
+  <div
+    class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] duration-300 p-2 w-[300px] overflow-y-auto text-center bg-gray-900 shadow h-screen z-40">
+    <div class="text-gray-100 text-xl flex flex-col h-full justify-between">
+      <div>
+        <div class="p-2.5 mt-1 flex items-center rounded-md">
+          <h1 class="text-[15px] ml-3 text-xl text-gray-200 font-bold">OX System</h1>
+          <i class="bi bi-x absolute top-4 right-4 text-gray-200 cursor-pointer lg:hidden z-50" onclick="Openbar()"></i>
+        </div>
+        <div class="mt-4 space-y-2">
+          <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600">
+            <i class="bi bi-clipboard-check"></i>
+            <span class="text-[15px] ml-4 text-gray-200">Relatórios OS</span>
+          </div>
+          <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600">
+            <i class="bi bi-clipboard-plus"></i>
+            <span class="text-[15px] ml-4 text-gray-200">Criar OS</span>
+          </div>
+          <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600">
+            <i class="bi bi-clipboard-data"></i>
+            <span class="text-[15px] ml-4 text-gray-200">Relatórios Financeiros</span>
+          </div>
+          <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600">
+            <i class="bi bi-clipboard-pulse"></i>
+            <span class="text-[15px] ml-4 text-gray-200">Relatórios MP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-100 cursor-pointer hover:bg-red-600">
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span class="text-[15px] ml-4 text-gray-200">Logout</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="main-content" class="lg:ml-[300px] transition-all duration-300">
+    <div class="px-4 sm:px-6 lg:px-8 pt-20 lg:pt-8 pb-8 min-h-screen max-w-7xl mx-auto">
+      <h1 class="uppercase text-2xl sm:text-3xl font-bold text-gray-800 mb-6">
+        Relatórios de ordens de serviço
+      </h1>
+      <div class="overflow-x-auto bg-white shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-300">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col"
+                class="py-3.5 pl-4 pr-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 sm:pl-6">ID
+              </th>
+              <th scope="col" class="px-3 py-3.5 text-left text-xs font-medium uppercase tracking-wide text-gray-500">
+                Autor</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-xs font-medium uppercase tracking-wide text-gray-500">
+                Data</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-xs font-medium uppercase tracking-wide text-gray-500">
+                Setor</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-xs font-medium uppercase tracking-wide text-gray-500">
+                Situação</th>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 bg-white">
+            <tr>
+              <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">0</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Alguém</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">20/02/2026</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Admin</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <div class="relative w-48 custom-dropdown">
+                  <button type="button" onclick="this.nextElementSibling.classList.toggle('hidden')"
+                    class="w-full flex items-center justify-between bg-[#1e293b] text-white border border-slate-600 rounded-md px-3 py-2 text-sm shadow-sm focus:outline-none">
+                    <span class="selected-text">Concluído</span>
+                    <i class="bi bi-chevron-expand text-gray-400"></i>
+                  </button>
+
+                  <ul
+                    class="hidden absolute z-50 mt-1 w-full bg-[#1e293b] border border-slate-600 rounded-md shadow-lg max-h-48 overflow-y-auto text-white text-sm [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-500 [&::-webkit-scrollbar-thumb]:rounded-full dropdown-list">
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 hover:bg-slate-700 cursor-pointer">
+                      <span>Em andamento</span> <i class="bi bi-check text-indigo-400 text-lg hidden check-icon"></i>
+                    </li>
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 bg-slate-700 hover:bg-slate-700 cursor-pointer active-item">
+                      <span>Concluído</span> <i class="bi bi-check text-indigo-400 text-lg check-icon"></i>
+                    </li>
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 hover:bg-slate-700 cursor-pointer">
+                      <span>Cancelado</span> <i class="bi bi-check text-indigo-400 text-lg hidden check-icon"></i>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">0</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Alguém</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">20/02/2026</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Admin</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <div class="relative w-48 custom-dropdown">
+                  <button type="button" onclick="this.nextElementSibling.classList.toggle('hidden')"
+                    class="w-full flex items-center justify-between bg-[#1e293b] text-white border border-slate-600 rounded-md px-3 py-2 text-sm shadow-sm focus:outline-none">
+                    <span class="selected-text">Concluído</span>
+                    <i class="bi bi-chevron-expand text-gray-400"></i>
+                  </button>
+
+                  <ul
+                    class="hidden absolute z-50 mt-1 w-full bg-[#1e293b] border border-slate-600 rounded-md shadow-lg max-h-48 overflow-y-auto text-white text-sm [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-500 [&::-webkit-scrollbar-thumb]:rounded-full dropdown-list">
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 hover:bg-slate-700 cursor-pointer">
+                      <span>Em andamento</span> <i class="bi bi-check text-indigo-400 text-lg hidden check-icon"></i>
+                    </li>
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 bg-slate-700 hover:bg-slate-700 cursor-pointer active-item">
+                      <span>Concluído</span> <i class="bi bi-check text-indigo-400 text-lg check-icon"></i>
+                    </li>
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 hover:bg-slate-700 cursor-pointer">
+                      <span>Cancelado</span> <i class="bi bi-check text-indigo-400 text-lg hidden check-icon"></i>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">0</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Alguém</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">20/02/2026</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Admin</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <div class="relative w-48 custom-dropdown">
+                  <button type="button" onclick="this.nextElementSibling.classList.toggle('hidden')"
+                    class="w-full flex items-center justify-between bg-[#1e293b] text-white border border-slate-600 rounded-md px-3 py-2 text-sm shadow-sm focus:outline-none">
+                    <span class="selected-text">Concluído</span>
+                    <i class="bi bi-chevron-expand text-gray-400"></i>
+                  </button>
+
+                  <ul
+                    class="hidden absolute z-50 mt-1 w-full bg-[#1e293b] border border-slate-600 rounded-md shadow-lg max-h-48 overflow-y-auto text-white text-sm [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-500 [&::-webkit-scrollbar-thumb]:rounded-full dropdown-list">
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 hover:bg-slate-700 cursor-pointer">
+                      <span>Em andamento</span> <i class="bi bi-check text-indigo-400 text-lg hidden check-icon"></i>
+                    </li>
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 bg-slate-700 hover:bg-slate-700 cursor-pointer active-item">
+                      <span>Concluído</span> <i class="bi bi-check text-indigo-400 text-lg check-icon"></i>
+                    </li>
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 hover:bg-slate-700 cursor-pointer">
+                      <span>Cancelado</span> <i class="bi bi-check text-indigo-400 text-lg hidden check-icon"></i>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">0
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Alguém</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">20/02/2026</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Admin</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <div class="relative w-48 custom-dropdown">
+                  <button type="button" onclick="this.nextElementSibling.classList.toggle('hidden')"
+                    class="w-full flex items-center justify-between bg-[#1e293b] text-white border border-slate-600 rounded-md px-3 py-2 text-sm shadow-sm focus:outline-none">
+                    <span class="selected-text">Concluído</span>
+                    <i class="bi bi-chevron-expand text-gray-400"></i>
+                  </button>
+
+                  <ul
+                    class="hidden absolute z-50 mt-1 w-full bg-[#1e293b] border border-slate-600 rounded-md shadow-lg max-h-48 overflow-y-auto text-white text-sm [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-500 [&::-webkit-scrollbar-thumb]:rounded-full dropdown-list">
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 hover:bg-slate-700 cursor-pointer">
+                      <span>Em andamento</span> <i class="bi bi-check text-indigo-400 text-lg hidden check-icon"></i>
+                    </li>
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 bg-slate-700 hover:bg-slate-700 cursor-pointer active-item">
+                      <span>Concluído</span> <i class="bi bi-check text-indigo-400 text-lg check-icon"></i>
+                    </li>
+                    <li onclick="selecionar(this)"
+                      class="flex items-center justify-between px-3 py-2.5 hover:bg-slate-700 cursor-pointer">
+                      <span>Cancelado</span> <i class="bi bi-check text-indigo-400 text-lg hidden check-icon"></i>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function Openbar() {
+      document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+      document.querySelector('#main-content').classList.toggle('ml-[300px]');
+    }
+
+    function selecionar(elemento) {
+      const dropdown = elemento.closest('.custom-dropdown');
+
+      // Muda o texto do botão
+      dropdown.querySelector('.selected-text').innerText = elemento.querySelector('span').innerText;
+
+      // Remove estilo de todos os itens
+      dropdown.querySelectorAll('li').forEach(li => {
+        li.classList.remove('bg-slate-700', 'active-item');
+        li.querySelector('.check-icon').classList.add('hidden');
+      });
+
+      // Adiciona estilo no clicado
+      elemento.classList.add('bg-slate-700', 'active-item');
+      elemento.querySelector('.check-icon').classList.remove('hidden');
+
+      // Fecha a lista
+      dropdown.querySelector('.dropdown-list').classList.add('hidden');
+    }
+
+    // Fecha o menu se clicar fora
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.custom-dropdown')) {
+        document.querySelectorAll('.dropdown-list').forEach(list => list.classList.add('hidden'));
+      }
+    });
+  </script>
+</body>
+
+</html>
